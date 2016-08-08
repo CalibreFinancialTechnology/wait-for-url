@@ -1,5 +1,5 @@
 # wait-for-url
-Script to wait for URL to be available before running command
+Script to wait for URL resource to be available before running command
 
 waitURL.py is a pure python script that will wait on the availability of a URL resource. It is useful for synchronizing the spin-up of interdependent services, such as linked docker containers.
 
