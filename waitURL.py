@@ -23,18 +23,17 @@ req = urllib2.Request(url)
 while timeSoFar < timeOut:
     try:
         res = urllib2.urlopen(req)
-
-    except (urllib2.HTTPError, urllib2.URLError) as e:
-        timeSoFar = timeSoFar + waitTime
-        time.sleep(waitTime)
-
-    else:
-        if res.code == 200:
-            print("Connected to URL %s" % url)
+	if res.code == 200:
+	    print("Connected to URL %s" % url)
             os.system(" ".join(command))
             break
         else:
             timeSoFar = timeSoFar + waitTime
             time.sleep(waitTime)
 
+    except (urllib2.HTTPError, urllib2.URLError):
+        timeSoFar = timeSoFar + waitTime
+        time.sleep(waitTime)
+
+        
 print("waitURL completed for %s " % url)
